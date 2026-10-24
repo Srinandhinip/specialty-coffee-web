@@ -1,0 +1,225 @@
+/* ==========================================================
+   AURA SPECIALTY COFFEE ATELIER & LAB - GLOBAL DESIGN SYSTEM
+   ========================================================== */
+
+:root {
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Outfit', 'Playfair Display', Georgia, serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  /* Luxury Dark Mode Palette (Default) */
+  --bg-app: #0d0e12;
+  --bg-surface: #14161d;
+  --bg-card: #1a1c26;
+  --bg-card-hover: #222533;
+  --bg-glass: rgba(26, 28, 38, 0.75);
+  
+  --border-subtle: #272a38;
+  --border-focus: #e0a96d;
+
+  --text-primary: #fdfbf7;
+  --text-secondary: #a3a8b8;
+  --text-muted: #6e7387;
+
+  /* Specialty Accent Tokens */
+  --accent-amber: #f4a261;
+  --accent-terracotta: #e76f51;
+  --accent-crema: #d4a373;
+  --accent-espresso: #26160e;
+  --accent-green: #52b788;
+  --accent-gold: #ffd166;
+
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 25px rgba(244, 162, 97, 0.2);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Warm Crema Theme Variant */
+html[data-theme='warm'] {
+  --bg-app: #f9f6f0;
+  --bg-surface: #f1ebd9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #faf6f0;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+
+  --border-subtle: #e5dac9;
+  --border-focus: #9d6b38;
+
+  --text-primary: #2c2117;
+  --text-secondary: #6e5e50;
+  --text-muted: #9c8a7a;
+
+  --shadow-sm: 0 4px 12px rgba(90, 60, 40, 0.06);
+  --shadow-md: 0 10px 25px -5px rgba(90, 60, 40, 0.1);
+  --shadow-lg: 0 20px 40px -10px rgba(90, 60, 40, 0.15);
+  --shadow-glow: 0 0 25px rgba(212, 163, 115, 0.25);
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-crema);
+}
+
+/* Typography Defaults */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Common Interactive Utilities */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 12px 22px;
+  transition: all var(--transition-normal);
+  user-select: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-amber), var(--accent-terracotta));
+  color: #120c08;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(244, 162, 97, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(244, 162, 97, 0.45);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-crema);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+}
+
+.btn-ghost:hover {
+  color: var(--text-primary);
+  border-color: var(--border-subtle);
+  background: var(--bg-card);
+}
+
+.btn-glow {
+  position: relative;
+}
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accent-amber), var(--accent-terracotta));
+  opacity: 0.35;
+  filter: blur(8px);
+  z-index: -1;
+  transition: opacity var(--transition-normal);
+}
+.btn-glow:hover::after {
+  opacity: 0.7;
+}
+
+/* Toast Banner */
+.toast-notification-banner {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 10000;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--accent-amber);
+  box-shadow: var(--shadow-lg), 0 0 20px rgba(244, 162, 97, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
